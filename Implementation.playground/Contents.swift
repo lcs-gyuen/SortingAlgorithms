@@ -113,3 +113,42 @@ numbers
 
 // Begin your implementation below...
 
+//First we create two seperate lists
+
+var list : [Int] = []
+// One unsorted
+var sortedList : [Int] = []
+// Another unsorted
+
+//Populate list with numbers from 1 to 50, 10 times
+for _ in 1...10
+{
+    list.append( random(between: 1, and: 50))
+}
+
+// set lowest value to highest expected value, then find lowest
+var lowest = 50
+var lowestIndex = list.count
+var i = 0
+while list.count > 0
+{
+lowest = 50
+lowestIndex = list.count
+i = 0
+//if i is smaller than list.count, find lowest number in list
+while i < list.count
+{
+if lowest > list[i]
+{
+lowest = list[i]
+lowestIndex = i
+}
+    i += 1
+    }
+    
+    // The loop will continusley add and remove the lowest number from the list and adding it to the sorted list, from lowest to highest.
+    sortedList.append(lowest)
+    list.remove(at: lowestIndex)
+}
+
+print("The sorted deck is \(sortedList)")
