@@ -118,7 +118,7 @@ numbers
 var list : [Int] = []
 // One unsorted
 var sortedList : [Int] = []
-// Another unsorted
+// Another sorted
 
 //Populate list with numbers from 1 to 50, 10 times
 for _ in 1...10
@@ -150,5 +150,5 @@ lowestIndex = i
     sortedList.append(lowest)
     list.remove(at: lowestIndex)
 }
-
+    //Show result
 print("The sorted deck is \(sortedList)")
