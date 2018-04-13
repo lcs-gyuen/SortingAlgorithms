@@ -113,42 +113,30 @@ numbers
 
 // Begin your implementation below...
 
-//First we create two seperate lists
+var cardNumbers : [Int] = []
 
-var list : [Int] = []
-// One unsorted
-var sortedList : [Int] = []
-// Another sorted
-
-//Populate list with numbers from 1 to 50, 10 times
-for _ in 1...10
-{
-    list.append( random(between: 1, and: 50))
+for _ in 0...20 {
+    cardNumbers.append( random(between: 1, and: 50))
 }
 
-// set lowest value to highest expected value, then find lowest
-var lowest = 50
-var lowestIndex = list.count
-var i = 0
-while list.count > 0
-{
-lowest = 50
-lowestIndex = list.count
-i = 0
-//if i is smaller than list.count, find lowest number in list
-while i < list.count
-{
-if lowest > list[i]
-{
-lowest = list[i]
-lowestIndex = i
-}
-    i += 1
+print("Sorted List")
+
+// Create a loop that everytime the code runs, the amount of time -1
+for _ in 0..<cardNumbers.count - 1 {
+    for i in 0..<cardNumbers.count - 1 {
+        
+        // Check if Card 1 is larger than Card 2
+        if cardNumbers[i] > cardNumbers[i + 1] {
+            
+            // If so swap cards
+            let holderValue = cardNumbers[i]
+            cardNumbers[i] = cardNumbers[i + 1]
+            cardNumbers[i + 1] = holderValue
+            
+        }
     }
-    
-    // The loop will continusley add and remove the lowest number from the list and adding it to the sorted list, from lowest to highest.
-    sortedList.append(lowest)
-    list.remove(at: lowestIndex)
 }
-    //Show result
-print("The sorted deck is \(sortedList)")
+
+for i in 0..<cardNumbers.count {
+    print("Index is \(i) and the value is \(cardNumbers[i])")
+}
